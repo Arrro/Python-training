@@ -4,6 +4,7 @@ result = 100/777
 print("The result was {r:1.3f}".format(r=result))
 name = "Jose"
 print(f'Hello, {name}')
+print("Hello {0}".format(name))
 
 # Dictionaries
 d = {'k1':123, 'k2':[0,1,2,3], 'k3':{'insideKey':100}}
@@ -17,3 +18,4 @@ t = ('a','a','b')
 print(t.count('a'))
 print(t.index('a'))
 
+# File I/O
