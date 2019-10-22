@@ -78,6 +78,7 @@ print(s[-1])
 ### Lists
 # Build this list [0,0,0] two separate ways.
 list1 = [0,0,0]
+list2 = []
 list2 = list1 + list2
 
 # Reassign 'hello' in this nested list to say 'goodbye' item in this list:
