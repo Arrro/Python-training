@@ -57,8 +57,7 @@ numMatQ = 11**2 / 2.0 + 40 - .25
 # What is the *type* of the result of the expression 3 + 1.5 + 4?
     # Float
 # What would you use to find a number’s square root, as well as its square? 
-    # import math
-    # math.sqrt()
+100 ** 0.5
 
 ### Strings
 # Given the string 'hello' give an index command that returns 'e'. Use the code below:
@@ -68,7 +67,7 @@ print(s[1])
 # Reverse the string 'hello' using indexing:
 s ='hello'
 # Reverse the string using indexing
-print(s[0:])
+print(s[::-1])
 # Given the string hello, give two methods of producing the letter 'o' using indexing.
 s ='hello'
 ###
@@ -78,8 +77,7 @@ print(s[-1])
 ### Lists
 # Build this list [0,0,0] two separate ways.
 list1 = [0,0,0]
-list2 = []
-list2 = list1 + list2
+list2 = [0]*3
 
 # Reassign 'hello' in this nested list to say 'goodbye' item in this list:
 l = [1,2,[3,4,'hello']]
@@ -87,6 +85,7 @@ l[2][2] = 'goodbye'
 # Sort the list below:
 l = [5,3,4,6,1]
 l.sort()
+sorted(l)
 ### Dictionaries
 # Using keys and indexing, grab the 'hello' from the following dictionaries:
 d = {'simple_key':'hello'}
