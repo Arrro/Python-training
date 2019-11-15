@@ -30,7 +30,7 @@ lesser_of_two_evens(2,5)
 #### animal_crackers('Levelheaded Llama') --> True
 #### animal_crackers('Crazy Kangaroo') --> False
 def animal_crackers(text):
-    
+    for let in text.split(): # place first letters in a tuple? list? something?
 
 # Check
 animal_crackers('Levelheaded Llama')
@@ -50,6 +50,7 @@ makes_twenty(20,10)
 
 # Check
 makes_twenty(2,3)
+
 # ------------------------------------------------------------ # 
 # LEVEL 1 PROBLEMS
 # OLD MACDONALD: Write a function that capitalizes the first and fourth letters of a name
