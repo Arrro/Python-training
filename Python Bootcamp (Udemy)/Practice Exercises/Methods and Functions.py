@@ -30,7 +30,10 @@ lesser_of_two_evens(2,5)
 #### animal_crackers('Levelheaded Llama') --> True
 #### animal_crackers('Crazy Kangaroo') --> False
 def animal_crackers(text):
-    for let in text.split(): # place first letters in a tuple? list? something?
+    letters = []
+    for let in text.split():
+        letters.append(let[0])
+    return letters[0] == letters[1]
 
 # Check
 animal_crackers('Levelheaded Llama')
@@ -43,7 +46,7 @@ animal_crackers('Crazy Kangaroo')
 #### makes_twenty(12,8) --> True
 #### makes_twenty(2,3) --> False
 def makes_twenty(n1,n2):
-    pass
+    return n1 == 20 or n2 == 20 or n1 + n2 == 20
 
 # Check
 makes_twenty(20,10)
@@ -57,7 +60,13 @@ makes_twenty(2,3)
 #### old_macdonald('macdonald') --> MacDonald
 #### Note: 'macdonald'.capitalize() returns 'Macdonald'
 def old_macdonald(name):
-    pass
+    word = ""
+    for i in range(0, len(name)):
+        if i == 0 or i == 3:
+            word = word + name[i].upper()
+        else:
+            word = word + name[i].lower()
+    return word
 
 # Check
 old_macdonald('macdonald')
@@ -76,7 +85,9 @@ old_macdonald('macdonald')
 #### >>> " ".join(['Hello','world'])
 #### >>> "Hello world"
 def master_yoda(text):
-    pass
+    text = text.split()
+    text.reverse()
+    return " ".join(text)
 
 # Check
 master_yoda('I am home')
@@ -92,7 +103,12 @@ master_yoda('We are ready')
 
 # NOTE: abs(num) returns the absolute value of a number
 def almost_there(n):
-    pass
+    rmOne = abs(n - 100)
+    rmTwo = abs(n - 200)
+    if rmOne in range(1,11) or rmTwo in range(1,11):
+        return True
+    else:
+        return False
 
 # Check
 almost_there(104)
@@ -112,7 +128,10 @@ almost_there(209)
 #### has_33([1, 3, 1, 3]) → False
 #### has_33([3, 1, 3]) → False
 def has_33(nums):
-    pass
+    i = 1
+    while i < len(nums): 
+        return nums[i] == nums[i - 1] and nums[i] == 3
+    i += 1
 
 # Check
 has_33([1, 3, 3])
@@ -128,7 +147,10 @@ has_33([3, 1, 3])
 #### paper_doll('Hello') --> 'HHHeeellllllooo'
 #### paper_doll('Mississippi') --> 'MMMiiissssssiiippppppiii'
 def paper_doll(text):
-    pass
+    s = ""
+    for letter in text:
+        s = s + letter*3
+    print(s)
 
 # Check
 paper_doll('Hello')
