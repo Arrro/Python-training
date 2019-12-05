@@ -129,9 +129,11 @@ almost_there(209)
 #### has_33([3, 1, 3]) → False
 def has_33(nums):
     i = 1
-    while i < len(nums): 
-        return nums[i] == nums[i - 1] and nums[i] == 3
-    i += 1
+    while i < len(nums):
+        if nums[i] == nums[i - 1] and nums[i] == 3:
+            return True
+        i += 1
+    return False
 
 # Check
 has_33([1, 3, 3])
@@ -141,7 +143,6 @@ has_33([1, 3, 1, 3])
 
 # Check
 has_33([3, 1, 3])
-
 
 # PAPER DOLL: Given a string, return a string where for every character in the original there are three characters
 #### paper_doll('Hello') --> 'HHHeeellllllooo'
@@ -163,7 +164,16 @@ paper_doll('Mississippi')
 #### blackjack(9,9,9) --> 'BUST'
 #### blackjack(9,9,11) --> 19
 def blackjack(a,b,c):
-    pass
+    nums = [a,b,c]
+    total = 0
+    for num in nums:
+        if num != 11:
+            total = total + num
+        elif num == 11:
+            total = total + num - 10
+    if total > 21:
+        return 'BUST'
+    return total
 
 # Check
 blackjack(5,6,7)
@@ -179,7 +189,22 @@ blackjack(9,9,11)
 #### summer_69([4, 5, 6, 7, 8, 9]) --> 9
 #### summer_69([2, 1, 6, 9, 11]) --> 14
 def summer_69(arr):
-    pass
+    found_6 = False
+    good_numbers = []
+    for number in arr:
+        if number == 6:
+            found_6 = True
+            continue
+        elif number == 9 and found_6:
+            found_6 = False
+            continue
+        elif found_6:
+            continue
+        good_numbers.append(number)
+    return sum(good_numbers)
+
+# ix = arr.index(num)
+# badNums = badNums + arr[ix]
 
 # Check
 summer_69([1, 3, 5])
@@ -197,7 +222,15 @@ summer_69([2, 1, 6, 9, 11])
 ####  spy_game([1,0,2,4,0,5,7]) --> True
 ####  spy_game([1,7,2,0,4,5,0]) --> False
 def spy_game(nums):
-    pass
+    i = 0
+    while i < len(nums):
+        if nums[-1] == 0:
+            return False
+        elif nums[i] == 0 and nums[i] == nums[i + 1] and nums[i + 2] == 7:
+            return True
+        i += 1
+    return False
+
 
 # Check
 spy_game([1,2,4,0,0,7,5])
