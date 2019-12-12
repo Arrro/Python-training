@@ -224,8 +224,8 @@ summer_69([2, 1, 6, 9, 11])
 def spy_game(nums):
     i = 0
     while i < len(nums):
-        if nums[-1] == 0:
-            return False
+        if i + 1 == len(nums):
+            break
         elif nums[i] == 0 and nums[i] == nums[i + 1] and nums[i + 2] == 7:
             return True
         i += 1
@@ -246,7 +246,21 @@ spy_game([1,7,2,0,4,5,0])
 
 # By convention, 0 and 1 are not prime.
 def count_primes(num):
-    pass
+    prime_total = 0
+    for prime_num in range(2, num + 1): 
+        prime_counter = 0
+        i = 1
+        while i <= prime_num:
+            if prime_num % i == 0:
+                prime_counter += 1
+                if prime_counter > 2:
+                    break
+                elif prime_counter == 2 and i == prime_num:
+                    prime_total += 1
+                i += 1
+            else:
+                i += 1
+    return prime_total
 
 # Check
 count_primes(100)
