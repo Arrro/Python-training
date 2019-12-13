@@ -278,6 +278,8 @@ count_primes(100)
 # HINT: Consider making a dictionary of possible patterns, and mapping the alphabet to specific 5-line combinations of patterns.
 # For purposes of this exercise, it's ok if your dictionary stops at "E".
 def print_big(letter):
-    pass
+    letter_dict = {"a":'* * * ***** *   * *   *'
+                      }
+    print(letter_dict)
 
 print_big('a')
