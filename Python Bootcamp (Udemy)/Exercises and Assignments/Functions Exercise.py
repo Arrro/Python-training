@@ -60,13 +60,9 @@ makes_twenty(2,3)
 #### old_macdonald('macdonald') --> MacDonald
 #### Note: 'macdonald'.capitalize() returns 'Macdonald'
 def old_macdonald(name):
-    word = ""
-    for i in range(0, len(name)):
-        if i == 0 or i == 3:
-            word = word + name[i].upper()
-        else:
-            word = word + name[i].lower()
-    return word
+    first_part = name[:3]
+    second_part = name[3:]
+    return first_part.capitalize() + second_part.capitalize()
 
 # Check
 old_macdonald('macdonald')
@@ -103,13 +99,7 @@ master_yoda('We are ready')
 
 # NOTE: abs(num) returns the absolute value of a number
 def almost_there(n):
-    rmOne = abs(n - 100)
-    rmTwo = abs(n - 200)
-    if rmOne in range(1,11) or rmTwo in range(1,11):
-        return True
-    else:
-        return False
-
+    return (abs(100-n) <= 10) or (abs(200-n) <= 10)
 # Check
 almost_there(104)
 
@@ -150,7 +140,7 @@ has_33([3, 1, 3])
 def paper_doll(text):
     s = ""
     for letter in text:
-        s = s + letter*3
+        s += letter*3
     print(s)
 
 # Check
@@ -168,9 +158,9 @@ def blackjack(a,b,c):
     total = 0
     for num in nums:
         if num != 11:
-            total = total + num
+            total += num
         elif num == 11:
-            total = total + num - 10
+            total += num - 10
     if total > 21:
         return 'BUST'
     return total
