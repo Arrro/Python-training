@@ -7,7 +7,8 @@
 # **Write a function that computes the volume of a sphere given its radius.**
 
 def vol(rad):
-    pass
+    rad = rad**3
+    
 
 # **Write a function that checks whether a number is in a given range (Inclusive of high and low)**
 

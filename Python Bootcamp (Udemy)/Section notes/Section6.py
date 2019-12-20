@@ -55,7 +55,7 @@ mynums = [1,2,3,4,5,6]
 for n in filter(check_even, mynums):
     print(n)
 
-def square(num): return num ** 2
+def squares(num): return num ** 2
 
 # The above into the below
 square = lambda num: num ** 2
