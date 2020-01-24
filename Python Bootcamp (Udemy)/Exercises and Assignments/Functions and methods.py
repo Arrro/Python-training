@@ -91,13 +91,13 @@ palindrome('helleh')
 # 
 # Hint: Look at the string module
 
+import string
 
-def ispangram(str1, alphabet=string.ascii_lowercase):  
-    import string
-    string.ascii_letters
+def ispangram(str1, alphabet=string.ascii_lowercase):
+    letters = [let for let in str1.lower() if let in alphabet]
+    letters.sort()
+    print(letters)
 
 ispangram("The quick brown fox jumps over the lazy dog")
-
-string.ascii_lowercase
 
 # Great Job!
