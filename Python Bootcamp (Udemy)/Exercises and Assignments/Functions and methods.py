@@ -94,9 +94,11 @@ palindrome('helleh')
 import string
 
 def ispangram(str1, alphabet=string.ascii_lowercase):
-    letters = [let for let in str1.lower() if let in alphabet]
-    letters.sort()
-    print(letters)
+    str_let = ''
+    letters = sorted(list(set([let for let in str1.lower() if let in alphabet])))
+    for let in letters:
+        str_let += let
+    return str_let == alphabet
 
 ispangram("The quick brown fox jumps over the lazy dog")
 
