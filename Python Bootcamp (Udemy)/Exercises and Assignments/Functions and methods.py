@@ -90,17 +90,6 @@ palindrome('helleh')
 #    For example : "The quick brown fox jumps over the lazy dog"
 # 
 # Hint: Look at the string module
-<<<<<<< HEAD
-import string
-
-def ispangram(str1, alphabet=string.ascii_lowercase):  
-    import string
-    letter_check = []
-    for let in str1.lower():
-        letter_check.append(let)
-        if let in alphabet:
-            
-=======
 
 import string
 
@@ -110,14 +99,9 @@ def ispangram(str1, alphabet=string.ascii_lowercase):
     for let in letters:
         str_let += let
     return str_let == alphabet
->>>>>>> 94f3292711f2d0790a926b2309d56213661e978a
 
-
-<<<<<<< HEAD
-    print(str(letter_check))
+    #print(str(letter_check))
 
 ispangram("The quick brown fox jumps over the lazy dog")
 
-=======
->>>>>>> 94f3292711f2d0790a926b2309d56213661e978a
 # Great Job!
