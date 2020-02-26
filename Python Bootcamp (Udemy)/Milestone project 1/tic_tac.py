@@ -5,6 +5,8 @@
 # 123
 # Prompt player 1 for X or O
 
+import sys
+
 board = [
     1, 2, 3,
     4, 5, 6,
@@ -15,10 +17,14 @@ def win_lines():
     i = 0
     while i < len(board):
         if board[i] == board[i - 1] and board[i] == board[i - 2]:
-            print('Test1')
+            return True
+        elif board[i] == board[0] and board[i] == board[4] and board[i] == board[8]:
+            return True
+        elif board[i] == board[2] and board[i] == board[4] and board[i] == board[6]:
             return True
         i += 1
     return False
+
 
 def display_board():
     print('\n', ' ', board[0], '|', board[1], '|', board[2], '\n', 
@@ -29,10 +35,15 @@ def display_board():
 
 
 def play1_turn():
-    print('Player 1, its your turn: ')
-    display_board()
-    play1_choice(choice = int(input()))
-    win_lines()
+    if win_lines() is False:
+        print('Player 1, its your turn: ')
+        display_board()
+        play1_choice(choice = int(input()))
+        display_board()
+        win_lines()
+    if win_lines() is True:
+        print('Player 1 wins!')
+        sys.exit()
 
 def play1_choice(choice):
     i = 0
@@ -44,11 +55,16 @@ def play1_choice(choice):
             i += 1
 
 def play2_turn():
-    print('Player 2, its your turn: ')
-    display_board()
-    play2_choice(choice = int(input()))
-    display_board()
-    win_lines()
+    if win_lines() is False:
+        print('Player 2, its your turn: ')
+        display_board()
+        play2_choice(choice = int(input()))
+        display_board()
+        win_lines()
+    if win_lines() is True:
+        print('Player 2 wins!')
+        sys.exit()
+
 
 def play2_choice(choice):
     i = 0
