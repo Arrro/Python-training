@@ -8,9 +8,11 @@ class Line:
     def __init__(self,coor1,coor2):
         self.coor1 = coor1
         self.coor2 = coor2
+
     def distance(self):
         d = (self.coor2[0] - self.coor1[0])**2 + (self.coor2[1] - self.coor1[1])**2
         print(self.math.sqrt(d))
+
     def slope(self):
         s = (self.coor2[1] - self.coor1[1]) / (self.coor2[0] - self.coor1[0])
         print(s)
@@ -32,12 +34,15 @@ li.slope()
 
 class Cylinder:
     pi = 3.14
+
     def __init__(self,height,radius):
         self.height = height
         self.radius = radius
+
     def volume(self):
         v = self.pi * (self.radius)**2 * self.height
         print(v)
+
     def surface_area(self):
         a = 2 * self.pi * self.radius * self.height + 2 * self.pi * (self.radius)**2
         print(a)
@@ -45,7 +50,7 @@ class Cylinder:
 # EXAMPLE OUTPUT
 c = Cylinder(2,3)
 c.volume()
-56.52
+#56.52
 
 c.surface_area()
-94.2
+#94.2
