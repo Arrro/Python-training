@@ -28,7 +28,7 @@ class Account:
 
     def withdraw(self,value):
         if value > self.amount:
-            print("Funs Unavailable!")
+            print("Funds Unavailable!")
         else:
             self.amount -= value
             
