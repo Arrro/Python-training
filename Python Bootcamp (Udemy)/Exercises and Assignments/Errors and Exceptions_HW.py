@@ -1,12 +1,11 @@
 # Problem 1
 # Handle the exception thrown by the code below by using try and except blocks.
 
-for i in ['a','b','c']:
-    try:
+try:
+    for i in ['a','b','c']:
         print(i**2)
-    except TypeError:
-        print("TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'int")
-    break
+except TypeError:
+    print("TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'int")
 
 # ---------------------------------------------------------------------------
 # TypeError                                 Traceback (most recent call last)
@@ -43,7 +42,7 @@ def ask():
     while True:
         try:
             num = int(input("Input and integer: "))
-        except TypeError:
+        except:
             print("An error occurred! Please try again!")
         else:
             num = num ** 2
