@@ -16,20 +16,21 @@ class Deck:
         while hand_count < 2:
             self.hand.append(random.choice(list(self.cards)))
             hand_count += 1
-        if hand_count is 2:
+        if hand_count == 2:
             return self.hand
 
     
     def card_total(self):
         self.total = 0
         for card in self.hand:
-            self.total += self.cards[card]
+            if card == "A":
+                card = input("You have an ace in your hand, do you wish to play it as a 1 or 11?: ")
+                print(f"Ace is now being played as a(n) {card}")
+                self.total += int(card)
+            else:
+                self.total += self.cards[card]
         return self.total
 
 
     def hit(self, hand: list):
         return self.hand.append(random.choice(self.cards))
-        #for card in self.hand:
-            #if card is "A":
-            #    card = input("You have an ace in your hand, do you wish to play it as a 1 or 11?: ")
-            #    self.total += int(card)
