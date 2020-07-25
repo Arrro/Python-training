@@ -1,14 +1,24 @@
 from classes_file import Deck
 
-players_hand = Deck.player_hand(Deck)
-# hit = Deck.hit(Deck, players_hand)
+print("Welcome to blackjack!")
 
-player_1 = input(f"welcome to blackjack, youve been dealt the following hand: {players_hand} would you like to hit or fold? ").upper()
+players_hand = Deck.deal_hand(Deck)
+dealers_hand = Deck.deal_hand(Deck)
 
-print(players_hand)
-print(Deck.card_total(Deck))
+print(f"You've been dealt the following hand: {players_hand[0]}, {players_hand[1]} \nThe Dealer was dealt a: {dealers_hand[1]}")
 
-if player_1 == "HIT":
-    print(Deck.hit(Deck, players_hand))
-elif player_1 == "FOLD":
-    print(Deck.card_total(Deck))
+while Deck.card_total(Deck, players_hand) <= 21:
+    print(f"Current hand total is: {Deck.card_total(Deck, players_hand)}")
+    ply_input = input("Would you like to Hit or Stand? ").upper()
+
+    if ply_input == "HIT":
+        print("Player hits")
+        Deck.hit(Deck, players_hand)
+        if Deck.card_total(Deck, players_hand) > 21:
+            print(f"{Deck.card_total(Deck, players_hand)} Bust! You lose")
+            break
+        print(f"Your current hand is: {players_hand}")
+        continue
+    elif ply_input == "STAND":
+        Deck.stand(Deck, players_hand, dealers_hand)
+        # Need to handle break and more verbose output of cards to ensure proper totals are being calculated for winnig
