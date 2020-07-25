@@ -36,6 +36,7 @@ class Deck:
         return hand.append(random.choice(list(self.cards)))
 
     # Does not handle a matching 21 and 21 or if the player wins yet
+    # When player hits, while loop may not work properly, need more output
     def stand(self, players_hand, dealers_hand):
         player_total = Deck.card_total(Deck, players_hand)
         print(f"Your hand total is: {player_total}")
