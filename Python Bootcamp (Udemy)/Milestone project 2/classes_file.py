@@ -35,17 +35,16 @@ class Deck:
     def hit(self, hand):
         return hand.append(random.choice(list(self.cards)))
 
-    # Does not handle a matching 21 and 21 or if the player wins yet
-    # When player hits, while loop may not work properly, need more output
+
     def stand(self, players_hand, dealers_hand):
         player_total = Deck.card_total(Deck, players_hand)
-        print(f"Your hand total is: {player_total}")
+        print(f"Your hand total is: {players_hand} & the dealer's hand was {dealers_hand}")
         if Deck.card_total(Deck, dealers_hand) < player_total:
-            while Deck.card_total(Deck, dealers_hand) < player_total:
-                Deck.hit(Deck, dealers_hand)
-                if Deck.card_total(Deck, dealers_hand) > 21:
-                    print(f'Dealer busts with: {Deck.card_total(Deck, dealers_hand)}')
-                    break
-        elif Deck.card_total(Deck, dealers_hand) > player_total:
-            print(f"Players total was: {player_total} and the Dealer had {Deck.card_total(Deck, dealers_hand)}")
-            print("Dealer Wins!")
+            Deck.hit(Deck, dealers_hand)
+            if Deck.card_total(Deck, dealers_hand) > 21:
+                return (f'You win! Dealer busts with: {Deck.card_total(Deck, dealers_hand)}')
+            elif Deck.card_total(Deck, dealers_hand) < player_total:
+                return (f"You win with {players_hand} = {player_total} while the Dealer had {dealers_hand} = {Deck.card_total(Deck, dealers_hand)}")
+            elif Deck.card_total(Deck, dealers_hand) > player_total:
+                print(f"Players total was: {player_total} and the Dealer had {Deck.card_total(Deck, dealers_hand)}")
+                return "Dealer Wins!"
